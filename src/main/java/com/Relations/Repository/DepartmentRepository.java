@@ -8,14 +8,12 @@ import org.springframework.data.jpa.repository.Query;
 import com.Relations.dto.DeptEmpDto;
 import com.Relations.entity.Department;
 
-interface DepartmentRepository extends JpaRepository<Department, Integer> {
+public interface DepartmentRepository extends JpaRepository<Department, Integer> {
 	
-	@Query("SELECT new com.roytuts.spring.data.jpa.left.right.inner.cross.join.dto.DeptEmpDto(d.name, e.name, e.email, e.address) "
-			+ "FROM Department d LEFT JOIN d.employees e")
+	@Query("SELECT new com.Relations.dto.DeptEmpDto(d.name, e.name, e.email, e.address) "+ "FROM Department d LEFT JOIN d.employees e")
 	List<DeptEmpDto> fetchEmpDeptDataLeftJoin();
 
-	@Query("SELECT new com.roytuts.spring.data.jpa.left.right.inner.cross.join.dto.DeptEmpDto(d.name, e.name, e.email, e.address) "
-			+ "FROM Department d RIGHT JOIN d.employees e")
+	@Query("SELECT new com.Relations.dto.DeptEmpDto(d.name, e.name, e.email, e.address) "+ "FROM Department d RIGHT JOIN d.employees e")
 	List<DeptEmpDto> fetchEmpDeptDataRightJoin();
 
 }
