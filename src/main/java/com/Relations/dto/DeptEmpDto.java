@@ -5,12 +5,14 @@ public class DeptEmpDto {
 	private String empName;
 	private String empEmail;
 	private String empAddress;
+	private long deptNo;
 
-	public DeptEmpDto(String empDept, String empName, String empEmail, String empAddress) {
+	public DeptEmpDto(String empDept, String empName, String empEmail, String empAddress,long deptNo) {
 		this.empDept = empDept;
 		this.empName = empName;
 		this.empEmail = empEmail;
 		this.empAddress = empAddress;
+		this.deptNo=deptNo;
 	}
 
 	public String getEmpDept() {
@@ -44,10 +46,22 @@ public class DeptEmpDto {
 	public void setEmpAddress(String empAddress) {
 		this.empAddress = empAddress;
 	}
+	
+	
+
+	public Long getDeptNo() {
+		return deptNo;
+	}
+
+	public void setDeptNo(Long deptNo) {
+		this.deptNo = deptNo;
+	}
 
 	@Override
 	public String toString() {
 		return "DeptEmpDto [empDept=" + empDept + ", empName=" + empName + ", empEmail=" + empEmail + ", empAddress="
-				+ empAddress + "]";
+				+ empAddress + ", deptNo=" + deptNo + "]";
 	}
+
+	
 }
